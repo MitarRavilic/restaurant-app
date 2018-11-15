@@ -1,0 +1,72 @@
+{% extends "_global/index.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{BASE}}resources/css/admin-dashboard/ingredient-dashboard.css">
+{% endblock %}
+
+{% block main %}
+<div ng-controller="AdminManageIngredientController">
+        <md-content layout-fill class="md-background">
+                <md-content class="ingredient-table-container">
+    <table>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Allergens
+            </th>
+            <th>
+                Option
+            </th>
+        </tr>
+        <tr ng-repeat="ingredient in ingredients track by $index">
+            <input type="hidden" ng-model="ingredient.ingredient_id" ng-value="ingredient.ingredient_id">
+            <td>
+                <input type="text" ng-model="ingredient.title" ng-value="ingredient.title">
+            </td>
+            <td>
+                <input type="text" ng-model="ingredient.allergens" ng-value="ingredient.allergens">
+            </td>
+            <td>
+                <md-button class="md-raised md-primary" type="submit" ng-click="updateIngredient(ingredient.ingredient_id, ingredient.title, ingredient.allergens)">
+                    Update
+                </md-button>
+                <md-button class="md-raised md-accent" type="submit" ng-click="deleteIngredient(ingredient.ingredient_id)">
+                    Delete
+                </md-button>
+            </td>
+        </tr>
+    </table>
+</md-content>
+    <md-content class="ingredient-create-table">
+    <table>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Allergens
+            </th>
+            <th>
+                Option
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" ng-model="ingredient.title" placeholder="Enter ingredient title">
+            </td>
+            <td>
+                <input type="text" ng-model="ingredient.allergens" placeholder="Enter allergens">
+            </td>
+            <td>
+                <md-button class="md-raised md-primary" type="submit" ng-click="createIngredient(ingredient.title, ingredient.allergens)">
+                    Create
+                </md-button>
+            </td>
+        </tr>
+    </table>
+</md-content>
+
+</md-content>            
+</div>
+{% endblock %}

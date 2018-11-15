@@ -1,0 +1,12 @@
+
+.tile-img{
+width:250px;
+height: 150px;
+}
+md-grid-tile-footer {
+    justify-content: center;
+}
+md-grid-tile-footer a {
+align-self: center;
+
+}

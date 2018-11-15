@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.main-navbar {
+  align-content: center;
+
+  }
+.main-navbar a {
+  align-self: center;
+  margin:auto;
+}
+.wrapper {
+  display: grid;
+  height: 100%;
+  width: 100%
+}

@@ -1,0 +1,21 @@
+.category-table-container {
+    height: 60vh;
+    
+    justify-content: center;
+}
+.category-table-container table {
+    align-self: center;
+    margin:auto;
+}
+th {
+    color: #0099CC;
+}
+
+.category-create-table {
+    justify-content: center;
+}
+.category-create-table table{
+    align-self: center;
+    margin:auto;
+    justify-content: center;
+}

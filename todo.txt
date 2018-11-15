@@ -1,0 +1,24 @@
+Admin:
+	-dodavanje admina X
+	-dodavanje dispechera X
+	-dodavanje itema u meni
+	-update admina,dispechera,
+Dispecher:
+-dispatcher Dashboard
+-chekiranje stavki porudzbina
+
+
+
+
+Customer:
+-update profila
+-ocena porudzbina i komentar
+
+Order:
+-finish order
+
+
+Baza:
+-dopunjavanje vrednosti
+-slike
+-

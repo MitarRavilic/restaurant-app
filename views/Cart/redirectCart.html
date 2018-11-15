@@ -1,0 +1,34 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div class="redirect-cart-wrapper" ng-controller="CartController">
+    <ul>
+        <li ng-repeat="item in cartItems">
+                <p>
+                    Name: {[{item.title}]}
+                </p>
+                <p>
+                    Portion: {[{item.portion[0]}]}
+                </p>
+                <p>
+                    Price: {[{item.price}]}
+                </p>
+                <p>Amount ordered: {[{item.amount[0]}]}</p>
+        </li>
+        <p>
+            Total price: {[{totalPrice}]}
+        </p>
+        <label for="personal_preference">Personal preference:</label>
+        <input type="text" id="personal_preference" ng-model="personal_preference">
+        <label for="delivery_address">Delivery address:</label>
+        <input type="text" id="delivery_address" ng-model="delivery_address">
+        <label for="delivery_time">Time of delivery:</label>
+        <input type="time" id="delivery_time" ng-model="delivery_time" min="9:00" max="22:00" required>
+        <button type="submit" ng-click="processOrder(personal_preference, delivery_address, delivery_time)">
+            Confirm order
+        </button>
+    </ul>
+</div>
+{% endblock %}
+
+{% block title %}- Item{% endblock %}

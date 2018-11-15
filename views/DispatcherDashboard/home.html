@@ -1,0 +1,41 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+    <div class="dispatcher-wrapper" ng-controller="DispatcherDashboardController">
+        <ul>
+            <li ng-repeat="order in orders">
+                <input type="hidden" ng-model="order.order_id" ng-value="order.order_id">
+                <md-input-container>
+                    <label>Delivery time:</label>
+                    <input ng-model="order.delivery_at" ng-value="order.delivery_at" datetime-picker date-format="yyyy-MM-dd HH:mm:ss"/>
+                </md-input-container>
+                <md-input-container>
+                    <label>Username:</label>
+                    <input ng-model="order.email" ng-value="order.email" readonly/>
+                </md-input-container>
+                <md-input-container>
+                    <label>Delivery address:</label>
+                    <input ng-model="order.delivery_address" ng-value="order.delivery_address" readonly/>
+                </md-input-container>
+                <md-input-container>
+                    <label>Personal preference:</label>
+                    <input ng-model="order.personal_preference" ng-value="order.personal_preference" readonly/>
+                </md-input-container>
+                <md-input-container ng-repeat="item in order.items">
+                    <md-input-container>
+                        <label>Title:</label>
+                        <input ng-model="item.title" ng-value="item.title" readonly/>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Amount:</label>
+                        <input ng-model="item.amount" ng-value="item.amount" readonly/>
+                    </md-input-container>
+                </md-input-container>
+                <md-button md-no-ink class="md-primary" ng-click="approve(order.order_id, order.delivery_at)"><i class="fa fa-check-circle fa-2x" aria-hidden="true"></i>
+                </md-button>
+                <md-button md-no-ink class="md-primary" ng-click="decline(order.order_id)"><i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                </md-button>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

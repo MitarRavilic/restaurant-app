@@ -1,0 +1,15 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+    <h1>Spisak Category je:</h1>
+    <ul>
+        {% for c in categories %}
+        <li>
+            <p>
+                {{ c.title|escape }}
+            </p>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block title %}- Category{% endblock %}

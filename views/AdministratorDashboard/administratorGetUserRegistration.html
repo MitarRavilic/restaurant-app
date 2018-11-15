@@ -1,0 +1,163 @@
+{% extends "_global/index.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{BASE}}resources/css/admin-dashboard/user-dashboard.css">
+{% endblock %}
+
+{% block main %}
+<div ng-controller="AdminManageUserController">
+<md-content layout-fill class="md-background">   
+    <md-content class="user-table-container">
+    <table>
+        <tr>
+        <th>Email</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone</th>
+        <th>Address1</th>
+        <th>Address2</th>
+        <th>Address3</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Confirm password</th>
+        <th>Role</th>
+        <th>Option</th>
+        </tr>
+        <tr ng-repeat="user in users track by $index">
+            <input type="hidden" name="input_user_id" ng-model="user.user_id" ng-value="user.user_id" readonly>
+            <td>
+                <input type="text" id="input_email" name="reg_email" required
+                    placeholder="E-mail" ng-model="user.email" ng-value="user.email">
+            </td>
+            <td>
+                <input type="text" id="input_first_name" name="reg_first_name" required
+                    placeholder="First name" ng-model="user.first_name" ng-value="user.first_name">
+            </td>
+            <td>
+                <input type="text" id="input_last_name" name="reg_last_name" required
+                    placeholder="Last name" ng-model="user.last_name" ng-value="user.last_name">
+            </td>
+            <td>
+                <input type="text" id="input_phone" name="reg_phone" required
+                    placeholder="Phone number" ng-model="user.phone" ng-value="user.phone">
+            </td>
+            <td>
+                <input type="text" id="input_address1" name="reg_address1" required
+                    placeholder="Address1" ng-model="user.address1" ng-value="user.address1">
+            </td>
+            <td>
+                <input type="text" id="input_address2" name="reg_address2"
+                    placeholder="Address2" ng-model="user.address2" ng-value="user.address2">
+            </td>
+            <td>
+                <input type="text" id="input_address3" name="reg_address3"
+                    placeholder="Address3" ng-model="user.address3" ng-value="user.address3">
+            </td>
+            <td>
+                <input type="text" id="input_username" name="reg_username" required
+                    placeholder="Username" ng-model="user.username" ng-value="user.username">
+            </td>
+            <td>
+                <input type="password" id="input_password" name="reg_password1" required
+                    placeholder="Password" ng-model="user.password" ng-value="user.password">
+            </td>
+            <td>
+                <input type="password" id="input_password" name="reg_password2" required
+                    placeholder="Password" ng-model="user.password1" ng-value="user.password1">
+            </td>
+            <td>
+                <select id="reg_role" name="reg_role" ng-model="user.role" ng-value="user.role">
+                    <option value="administrator">Administrator</option>
+                    <option value="dispatcher">Dispatcher</option>
+                    <option value="customer">Customer</option>
+                </select>
+            </td>
+            <td>
+                <md-button class="md-raised md-primary" type="submit" ng-click="updateUser(user.user_id, user.email, user.first_name, user.last_name, user.address1, user.address2, user.address3,
+                                                        user.username, user.password, user.password1, user.role, user.phone)">
+                    Update
+                </md-button>
+                <md-button class="md-raised md-accent" type="submit" ng-click="deleteUser(user.user_id)">
+                    Delete
+                </md-button>
+            </td>
+        </tr>
+    </table>
+    </md-content>
+
+<md-content class="user-create-table">
+    <table>
+        <tr>
+        <th>Email</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone</th>
+        <th>Address1</th>
+        <th>Address2</th>
+        <th>Address3</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Confirm password</th>
+        <th>Role</th>
+        <th>Option</th>
+        </tr>
+        <tr>
+        <td>
+            <input type="text" id="input_email" name="reg_email" required
+                ng-model="user.email" placeholder="E-mail">
+        </td>
+        <td>
+            <input type="text" id="input_first_name" name="reg_first_name" required
+                ng-model="user.first_name" placeholder="First name">
+        </td>
+        <td>
+            <input type="text" id="input_last_name" name="reg_last_name" required
+                ng-model="user.last_name" placeholder="Last name">
+        </td>
+        <td>
+            <input type="text" id="input_phone" name="reg_phone" required
+                placeholder="Phone number" ng-model="user.phone" ng-value="user.phone">
+        </td>
+        <td>
+            <input type="text" id="input_address1" name="reg_address1" required
+                ng-model="user.address1" placeholder="Address1">
+        </td>
+        <td>
+            <input type="text" id="input_address2" name="reg_address2"
+                ng-model="user.address2" placeholder="Address2">
+        </td>
+        <td>
+            <input type="text" id="input_address3" name="reg_address3"
+                ng-model="user.address3" placeholder="Address3">
+        </td>
+        <td>
+            <input type="text" id="input_username" name="reg_username" required
+                ng-model="user.username" placeholder="Username">
+        </td>
+        <td>
+            <input type="password" id="input_password" name="reg_password1" required
+                ng-model="user.password" placeholder="Password">
+        </td>
+        <td>
+            <input type="password" id="input_confirm_password" name="reg_password2" required
+                placeholder="Confirm Password">
+        </td>
+        <td>
+            <select id="reg_role" name="reg_role" ng-model="user.role">
+                <option value="administrator">Administrator</option>
+                <option value="dispatcher">Dispatcher</option>
+                <option value="customer">Customer</option>
+            </select>
+        </td>
+        <td>
+            <md-button class="md-raised md-primary"type="submit" ng-click="createUser(user.email, user.first_name, user.last_name, user.address1, user.address2, user.address3, user.username, user.password, user.password, user.role, user.phone)">
+                Submit
+            </md-button>
+        </td>
+        </tr>
+    </table>
+    </md-content>
+</md-content>
+</div>
+
+{% endblock %}

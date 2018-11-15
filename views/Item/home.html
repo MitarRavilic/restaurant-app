@@ -1,0 +1,21 @@
+{% extends "_global/index.html" %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{BASE}}resources/css/item/item.css">
+{% endblock %}
+
+{% block main %}
+    <h1>Menu:</h1>
+    <md-grid-list md-cols="4" md-row-height="300px" class="item-grid-list" layout-fill>
+        {% for i in items %}
+       
+        <md-grid-tile href="{{BASE}}items/{{ i.item_id }}">
+            <img class="tile-img" src="{{BASE}}resources/images/default.jpg">   
+            <md-grid-tile-footer>
+               <a class="md-primary" href="{{BASE}}items/{{ i.item_id }}">{{ i.title|escape }}</a> 
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        {% endfor %}
+    </md-grid-list>
+{% endblock %}
+
+{% block title %}- Item{% endblock %}

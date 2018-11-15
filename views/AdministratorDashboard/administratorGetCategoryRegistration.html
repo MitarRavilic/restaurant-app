@@ -1,0 +1,60 @@
+{% extends "_global/index.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{BASE}}resources/css/admin-dashboard/category-dashboard.css">
+{% endblock %}
+
+
+{% block main %}
+    <div class="category-wrapper" ng-controller="AdminManageCategoryController">
+            <md-content layout-fill class="md-background">
+                    <md-content class="category-table-container">
+        <table>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Option
+                </th>
+            </tr>
+            <tr ng-repeat="category in categories track by $index">
+                <input type="hidden" ng-model="category.category_id" ng-value="category.category_id">
+                <td>
+                    <input type="text" ng-model="category.title" ng-value="category.title">
+                </td>
+                <td>
+                    <md-button class="md-raised md-primary" type="submit" ng-click="updateCategory(category.category_id, category.title)">
+                        Update
+                    </md-button>
+                    <md-button class="md-raised md-accent" type="submit" ng-click="deleteCategory(category.category_id)">
+                        Delete
+                    </md-button>
+                </td>
+            </tr>
+        </table>
+        </md-content>
+            <md-content class="category-create-table">
+        <table>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Option
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" ng-model="category.title" placeholder="Enter a category title">
+                </td>
+                <td>
+                    <md-button class="md-raised md-primary" type="submit" ng-click="createCategory(category.title)">
+                        Create
+                    </md-button>
+                </td>
+            </tr>
+        </table>
+        </md-content>
+        </md-content>
+    </div>
+{% endblock %}

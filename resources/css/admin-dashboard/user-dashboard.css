@@ -1,0 +1,22 @@
+.user-table-container {
+    height: 50vh;
+    justify-content: center;
+}
+.user-table-container table {
+    align-self: center;
+    margin:auto;
+}
+th {
+    color: #0099CC;
+}
+.user-table-container table tr td {
+    width: 30px;
+}
+.user-create-table {
+    justify-content: center;
+}
+.user-create-table table{
+    align-self: center;
+    margin: auto;
+    justify-content: center;
+}

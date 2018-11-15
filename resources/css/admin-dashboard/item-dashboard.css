@@ -1,0 +1,21 @@
+.item-table-container {
+    height: 60vh;
+    
+    justify-content: center;
+}
+.item-table-container table {
+    align-self: center;
+    margin:auto;
+}
+th {
+    color: #0099CC;
+}
+
+.item-create-table {
+    justify-content: center;
+}
+.item-create-table table{
+    align-self: center;
+    margin:auto;
+    justify-content: center;
+}

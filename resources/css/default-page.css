@@ -1,0 +1,11 @@
+.center-menu {
+    justify-content: center;
+}
+.center-menu form {
+    align-self: center;
+    margin:auto;
+}
+
+.main-navbar {
+    height: 10vh;
+}

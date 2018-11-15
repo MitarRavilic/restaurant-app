@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/pivt/resources/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/pivt/resources/libs/angularjs-datetime-picker/angularjs-datetime-picker.css">
+    <link rel="stylesheet" type="text/css" href="/pivt/resources/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{BASE}}resources/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/pivt/resources/libs/angular-material/angular-material.min.css">
+    {% block styles %}
+    {% endblock %}
+    <title>Kineski restoran</title>
+</head>
+<body ng-app="restaurantApp" ng-controller="CartController" md-theme="docs-dark">
+    <md-content class="wrapper" layout-fill>
+        <md-subheader class="md-subheader" layout="row" layout-padding>
+           <div class="logo" layout="start start">
+               <a href="{{BASE}}items/home">
+         <img src="{{BASE}}resources/images/logo.png" width="100px" height="100px">
+        </a>
+         <h1>LAN FAN</h1>
+        </div> 
+        
+            <div class="main-navbar" layout="row">
+                <a href="#" class="md-primary">
+                            Contact
+                        </a>
+                        <a href="{{BASE}}user/login" class="md-primary" ng-if="!status">
+                            Login
+                        </a>
+                        <a href="{{BASE}}" class="md-primary" ng-if="status" ng-click="logout()">
+                            Logout
+                        </a>
+                        <a href="{{BASE}}user/register" class="md-primary">
+                            Sign up
+                        </a>
+                    </div>
+        </md-subheader>
+                    <div class="main-wrapper">
+                    {% block main %}
+                    {% endblock %}
+                    </div>
+                </md-content>
+    <div class="cart">Korpa je prazna</div>
+    <script>const BASE = '{{BASE}}'</script>
+    <script src="{{BASE}}resources/js/cart.js"></script>
+    <script src="{{BASE}}resources/libs/angular/angular.js"></script>
+    <script src="{{BASE}}resources/libs/angular-animate/angular-animate.min.js"></script>
+    <script src="{{BASE}}resources/libs/angular-aria/angular-aria.min.js"></script>
+    <script src="{{BASE}}resources/libs/angular-messages/angular-messages.min.js"></script>
+    <script src="{{BASE}}resources/libs/angular-material/angular-material.min.js"></script>
+    <script src="{{BASE}}resources/libs/angularjs-datetime-picker/angularjs-datetime-picker.js"></script>
+    <script src="{{BASE}}resources/libs/moment/min/moment.min.js"></script>
+    <script src="{{BASE}}resources/libs/angular-momentjs/angular-momentjs.min.js"></script>
+    <script src="{{BASE}}resources/js/restaurant.js"></script>
+</body>
+</html>

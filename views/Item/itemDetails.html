@@ -1,0 +1,26 @@
+{% extends "_global/index.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{BASE}}resources/css/default-page.css">
+{% endblock %}
+
+{% block main %}
+<md-content class="center-menu" layout="column" layout-align="center center">
+    
+    <h1>
+        {{ item.title|escape }}
+    </h1>
+    
+    <select id="portion">
+            {% for portion in portions %}
+            <option value="{{portion.size_name}}">
+                {{portion.size_name}}
+            </option>
+            {% endfor %}
+    </select>
+    <input type="number" id="amount" placeholder="amount" value="1" min="1" max="15">
+    <md-button class="md-raised md-primary"type="submit" onclick="addItemToCart({{item.item_id}}, document.getElementById('portion').value, document.getElementById('amount').value)">Dodaj u korpu</md-button>
+</md-content>
+    {% endblock %}
+
+{% block title %}- Item Detail{% endblock %}

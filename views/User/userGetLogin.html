@@ -1,0 +1,32 @@
+{% extends "_global/index.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{BASE}}resources/css/default-page.css">
+{% endblock %}
+
+{% block main %}
+<md-content class="center-menu" layout="row">
+       
+<form action="{{BASE}}user/login" method="POST" layout="column">
+   
+    <md-input-container>
+        <label class="md-primary" for ="input_username">Username:</label>
+        <input type="text" id="input_username" name="login_username" required
+            placeholder="Username">
+    </md-input-container>
+
+    <md-input-container>
+        <label for ="input_password">Password:</label>
+        <input type="password" id="input_password" name="login_password" required
+            placeholder="Password">
+    </md-input-container>>
+
+    <div>
+        <md-button class="md-raised md-primary" type="submit">Submit</md-button>
+    </div>
+
+</form>
+</div>
+</md-content>
+
+
+{% endblock %}

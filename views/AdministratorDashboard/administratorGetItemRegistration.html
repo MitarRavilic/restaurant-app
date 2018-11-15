@@ -1,0 +1,147 @@
+{% extends "_global/index.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{BASE}}resources/css/admin-dashboard/item-dashboard.css">
+{% endblock %}
+
+{% block main %}
+<div ng-controller="AdminManageItemController">
+<md-content layout-fill class="md-background">
+<md-content class="item-table-container">
+    <table>
+    <tr>
+        <th>
+            Item id
+        </th>
+        <th>
+           Item Title
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Mass
+        </th>
+        <th>
+            Calorie count
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Category title
+        </th>
+        <th>
+            Options
+        </th>
+    </tr>
+    <tr ng-repeat="item in itemsMerged track by $index">
+        <td>
+            <input type="text" id="input_item_id" name="reg_item_id" ng-model="item.item_id"
+                ng-value="item.item_id" ng-disabled="!switch">
+        </td>
+        <td>
+            <input type="text" id="input_title" name="reg_title"
+                placeholder="Title" string-to-number ng-model="item.title" ng-value="item.title" ng-disabled="!switch">
+        </td>
+        <td>
+            <input type="text" id="input_description" name="reg_description"
+                placeholder="Description" ng-model="item.description" ng-value="item.description" ng-disabled="!switch">
+        </td>
+        <td>
+            <input type="number" id="input_mass" name="reg_mass" step="0.01" min="0"
+                placeholder="Mass" string-to-number ng-model="item.mass" ng-value="item.mass" ng-disabled="!switch">
+        </td>
+        <td>
+            <input type="number" id="input_calorie_count" name="reg_calorie_count" step="0.01" min="0"
+                placeholder="Calorie Count" string-to-number ng-model="item.calorie_count" ng-value="item.calorie_count" ng-disabled="!switch">
+        </td>
+        <td>
+            <input type="number" id="input_price" name="reg_price" step="0.01" min="0"
+                placeholder="Price" string-to-number ng-model="item.price" ng-value="item.price" ng-disabled="!switch">
+        </td>
+        <td>
+            <input type="text" id="input_category_title" name="reg_category_title"
+                placeholder="Category name" ng-model="item.cat_title" ng-value="item.cat_title" ng-disabled="!switch">
+        </td>
+        <td layout="row">
+            <md-button class="md-raised md-primary" type="submit" ng-click="updateItem(item.item_id, item.title, item.description, item.mass, item.calorie_count, 
+            item.price, item.cat_title)" ng-disabled="!switch">
+                Update
+            </md-button>
+            <md-button class="md-raised md-accent" type="submit" ng-click="deleteItem(item.item_id)" ng-disabled="!switch">
+                Delete
+            </md-button>
+            <md-switch class="md-primary" ng-model="switch">
+                Enable editing
+            </md-switch>
+        </td>
+    </tr>
+</table>
+</md-content>    
+
+<md-content class="item-create-table">
+<table>
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Mass
+        </th>
+        <th>
+            Calorie count
+        </th>
+        <th>
+            price
+        </th>
+        <th>
+            Category title
+        </th>
+        <th>
+            Option
+        </th>
+    </tr>
+    <tr ng-disabled="switch">
+        <td>
+            <input type="text" id="input_title" name="reg_title"
+                placeholder="Title" ng-model="item.title">
+        </td>
+        <td>
+            <input type="text" id="input_description" name="reg_description"
+                placeholder="Description" ng-model="item.description">
+        </td>
+        <td>
+            <input type="number" id="input_mass" name="reg_mass" min="0"
+                placeholder="Mass" string-to-number ng-model="item.mass">
+        </td>
+        <td>
+            <input type="number" id="input_calorie_count" name="reg_calorie_count" min="0"
+                placeholder="Calorie Count" string-to-number ng-model="item.calorie_count">
+        </td>
+        <td>
+            <input type="number" id="input_price" name="reg_price" step="0.01" min="0"
+                placeholder="Price" string-to-number ng-model="item.price">
+        </td>
+        <td>
+            <input type="text" id="input_category_title" name="reg_category_title"
+                placeholder="Category name" ng-model="category.title">
+        </td>
+        <td>
+            <md-button class="md-raised md-primary" type="submit" ng-click="createItem(item.title, item.description, item.mass, item.calorie_count, 
+                                                      item.price, category.title)">
+                Create
+            </md-button>
+        </td>
+    </tr>
+</table>
+<div class="ingredient-checkboxes">
+    <md-checkbox ng-repeat="ingredient in ingredients track by $index" name="selectedIngredients" ng-model="ingredient.selected" aria-label="ingredient.title">
+        {[{ingredient.title}]}
+    </md-checkbox>
+</div>
+</md-content>
+</div>
+{% endblock %}

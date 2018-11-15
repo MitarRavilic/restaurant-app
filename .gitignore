@@ -1,0 +1,8 @@
+/vendor/
+/sessions/
+/twig-cache/
+resources/libs
+.yarnrc
+yarn.lock
+package.json
+Configuration.php

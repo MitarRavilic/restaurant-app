@@ -1,0 +1,21 @@
+.ingredient-table-container {
+    height: 60vh;
+    
+    justify-content: center;
+}
+.ingredient-table-container table {
+    align-self: center;
+    margin:auto;
+}
+th {
+    color: #0099CC;
+}
+
+.ingredient-create-table {
+    justify-content: center;
+}
+.ingredient-create-table table{
+    align-self: center;
+    margin:auto;
+    justify-content: center;
+}

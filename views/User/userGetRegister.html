@@ -1,0 +1,62 @@
+{% extends "_global/index.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{BASE}}resources/css/default-page.css">
+{% endblock %}
+
+{% block main %}
+<md-content class="center-menu" layout="column">
+<form action="{{ BASE }}user/register" method="POST" layout="column">
+   <md-input-container>
+        <label for ="input_email">E-mail:</label>
+        <input type="email" id="input_email" name="reg_email" required
+            placeholder="E-mail">
+    </md-input-container>
+
+    <md-input-container>
+        <label for ="input_first_name">First name:</label>
+        <input type="text" id="input_first_name" name="reg_first_name" required
+            placeholder="First name">
+    </md-input-container>
+    
+    <md-input-container>
+        <label for ="input_last_name">Last name:</label>
+        <input type="text" id="input_last_name" name="reg_last_name" required
+            placeholder="Last name">
+    </md-input-container>
+
+    <md-input-container>
+        <label for ="input_phone">Phone:</label>
+        <input type="text" id="input_phone" name="reg_phone"
+            placeholder="Phone">
+    </md-input-container>
+
+    <md-input-container>
+        <label for ="input_address1">Address1:</label>
+        <input type="text" id="input_address1" name="reg_address1" required
+            placeholder="Address1">
+    </md-input-container>
+
+    <md-input-container>
+        <label for ="input_username">Username:</label>
+        <input type="text" id="input_username" name="reg_username" required
+            placeholder="Username">
+    </md-input-container>
+
+    <md-input-container>
+        <label for ="input_password">Password:</label>
+        <input type="password" id="input_password" name="reg_password1" required
+            placeholder="Password">
+    </md-input-container>
+
+    <md-input-container>
+        <label for ="input_password">Confirm Password:</label>
+        <input type="password" id="input_confirm_password" name="reg_password2" required
+            placeholder="Confirm Password">
+    </md-input-container>
+    <md-input-container>
+        <md-button class="md-raised md-primary" type="submit">Submit</md-button>
+    </md-input-container>
+</form>
+</md-content>
+
+{% endblock %}

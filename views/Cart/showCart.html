@@ -1,0 +1,14 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+    {% for item in cartItems %}
+        <p>
+            {{item.title}}
+        </p>
+    
+    {% endfor %}
+
+    <button type="submit" ng-click="checkoutCart(1)">Test</button>
+{% endblock %}
+
+{% block title %}- Item{% endblock %}

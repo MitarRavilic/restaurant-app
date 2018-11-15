@@ -1,0 +1,27 @@
+{% extends "_global/index.html" %}
+
+{% block styles%}
+<link rel="stylesheet" href="{{BASE}}resources/css/admin-dashboard/home-dashboard.css">
+{% endblock %}
+
+{% block main %}
+<md-content class="central-content" layout="column" layout-align="center center">
+    <h1 class="md-display-3">
+        Administrator Dashboard
+    </h1>
+    <md-button class="md-primary" ng-href="{{ BASE }}admin/dashboard/user/register/">
+        Manage User
+    </md-button>
+    <md-button class="md-primary" ng-href="{{ BASE }}admin/dashboard/item/register/">
+        Manage Item
+    </md-button>
+    <md-button class="md-primary" ng-href="{{ BASE }}admin/dashboard/ingredient/register/">
+        Manage Ingredient
+    </md-button>
+    <md-button class="md-primary" ng-href="{{ BASE }}admin/dashboard/category/register/">
+        Manage Category
+    </md-button>
+</md-content>
+{% endblock %}
+
+{% block title %}- Admin{% endblock %}
