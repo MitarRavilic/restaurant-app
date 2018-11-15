@@ -1,3 +1,3 @@
-# PIVT
+# University assignment
 
-Projekat za PiVT - fast food restoran
+Web application for a fast food restaurant
